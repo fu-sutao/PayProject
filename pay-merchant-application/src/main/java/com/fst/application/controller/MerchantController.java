@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * 1、MerchantRegisterVO用于应用层接收前端请求及响应前端数据。
  * 2、MerchantDTO 用于服务层传入及响应数据。
  * 3、entity(实体类) 用于持久层传入及响应数据。
- *
+ *      git config --global http.sslVerify "false"
  * MapStruct  数据传输对象转换的繁琐
  */
 
