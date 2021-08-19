@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pay-merchant-service" />
+        <module name="pay-merchant-application" />
+        <module name="pay-merchant-api" />
+        <module name="codeServer" />
+        <module name="pay-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="codeServer" target="1.8" />
+      <module name="CodeServer" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CodeServer" options="-parameters" />
+      <module name="pay-common" options="-parameters" />
+      <module name="pay-merchant-api" options="-parameters" />
+      <module name="pay-merchant-application" options="-parameters" />
+      <module name="pay-merchant-service" options="-parameters" />
+    </option>
+  </component>
+</project>

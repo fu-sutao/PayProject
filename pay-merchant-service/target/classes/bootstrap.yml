@@ -1,0 +1,59 @@
+server:
+  port: 56040 #启动端口 命令行注入
+spring:
+  application:
+    name: merchant-service
+  main:
+    allow-bean-definition-overriding: true # Spring Boot 2.1 需要设定
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/huimipay_merchant_service?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 3adffdef-b53d-4181-9f86-ede4cac9b813
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848 # 配置中心地址
+        file-extension: yaml
+#        3adffdef-b53d-4181-9f86-ede4cac9b813
+#        7420a221-28b7-4379-b4a9-0e5beda62ee8
+        namespace: 3adffdef-b53d-4181-9f86-ede4cac9b813 # 命令行注入
+        group: HUIMIN_DEV # 聚合支付业务组
+        extension-configs[0]:
+          data-id: spring-boot-http.yaml
+          refresh: true
+          group: COMMON_GROUP # 通用配置组
+        extension-configs[1]:
+          data-id: spring-boot-starter-druid.yaml
+          refresh: true
+          group: COMMON_GROUP # 通用配置组
+
+mybatis-plus:
+  typeAliasesPackage: com.fst.service.entity
+  mapper-locations:   classpath:com/fst/*/mapper/*.xml
+
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.fst
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    port: 20890
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+#    需要自己加个ID不然自动生成的id会因非法字符报错。
+    id: merchant-service
+    qos:
+      port: 22240 # dubbo qos端口配置  命令行注入
+  consumer:
+    check: false
+    timeout: 90000
+    retries: -1
+#logging:
+#  config: classpath:log4j2.xml
+
+
