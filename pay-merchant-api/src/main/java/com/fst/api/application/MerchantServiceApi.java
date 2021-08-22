@@ -1,6 +1,7 @@
 package com.fst.api.application;
 
 import com.fst.api.application.entity.MerchantDTO;
+import com.fst.common.BusinessException;
 
 /**
  * @author：fst
@@ -15,5 +16,13 @@ public interface MerchantServiceApi {
      */
     MerchantDTO queryMerchantById(Long   merchantId);
 
-    MerchantDTO createMerchant(MerchantDTO merchantDTO);
+    MerchantDTO createMerchant(MerchantDTO merchantDTO) throws BusinessException;
+
+    /**
+     * 资质申请接口
+     * @param merchantId 商户id
+     * @param merchantDTO 资质申请的信息
+     * @throws BusinessException
+     */
+    void applyMerchant(Long merchantId,MerchantDTO merchantDTO) throws BusinessException;
 }

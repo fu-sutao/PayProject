@@ -1,6 +1,8 @@
 package com.fst.application.service;
 
 import com.alibaba.fastjson.JSON;
+import com.fst.common.BusinessException;
+import com.fst.common.domain.CommonErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,7 +56,7 @@ public class SmsService {
     }
 
     //检验验证码
-    public void checkVerifiyCode(String key, String Code) {
+    public void checkVerifiyCode(String key, String Code) throws BusinessException {
         String url = smsUrl + "/verify?name=sms&verificationCode=" + Code + "&verificationKey=" + key;
         Map responseMap = null;
         try {
@@ -70,7 +72,7 @@ public class SmsService {
         }
         if (responseMap == null || responseMap.get("result") == null || !(Boolean)
                 responseMap.get("result")) {
-            throw new RuntimeException("验证码错误");
+            throw new BusinessException(CommonErrorCode.E_100102);
         }
     }
 }
