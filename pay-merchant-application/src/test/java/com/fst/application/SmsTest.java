@@ -23,7 +23,7 @@ import java.util.Map;
 
 @Slf4j
 public class SmsTest {
-    // @Autowired
+    @Autowired
     RestTemplate restTemplate;
     @Before
     public void init(){

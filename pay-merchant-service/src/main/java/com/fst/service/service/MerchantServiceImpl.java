@@ -1,17 +1,16 @@
 package com.fst.service.service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.fst.api.application.MerchantServiceApi;
-import com.fst.api.application.entity.MerchantDTO;
 import com.fst.common.BusinessException;
 import com.fst.common.domain.CommonErrorCode;
 import com.fst.common.marchant.domain.Merchant;
+import com.fst.common.marchant.domain.MerchantDTO;
 import com.fst.common.util.PhoneUtil;
 import com.fst.service.mapper.MerchantMapper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -79,9 +78,9 @@ public class MerchantServiceImpl implements MerchantServiceApi {
         merchantDTO.setId(merchant.getId());
         return merchantDTO;
     }
+
     /**
      * 资质申请接口
-     *
      * @param merchantId  商户id
      * @param merchantDTO 资质申请的信息
      * @throws BusinessException
@@ -101,8 +100,6 @@ public class MerchantServiceImpl implements MerchantServiceApi {
         Merchant entity = new Merchant();
         BeanUtils.copyProperties(merchantDTO,entity);
         //Merchant entity = MerchantConvert.INSTANCE.dto2entity(merchantDTO);
-
-
 
         //将必要的参数设置到entity
         entity.setId(merchant.getId());

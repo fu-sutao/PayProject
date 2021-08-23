@@ -17,7 +17,7 @@ spring:
         server‐addr: 127.0.0.1:8848 # 配置中心地址
         file‐extension: yaml  #配置文件后缀
         namespace: 3adffdef-b53d-4181-9f86-ede4cac9b813 # 命令行注入
-        group: DEFAULT_GROUP
+        group: huiminpay_GROUP
         extension-configs[0]:
           data-id: spring-boot-http.yaml
           group: COMMON_GROUP
@@ -66,3 +66,8 @@ dubbo:
     retries: -1
 #logging:
 #  config: classpath:log4j2.xml
+
+
+
+
+

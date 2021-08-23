@@ -1,7 +1,7 @@
 package com.fst.api.application;
 
-import com.fst.api.application.entity.MerchantDTO;
 import com.fst.common.BusinessException;
+import com.fst.common.marchant.domain.MerchantDTO;
 
 /**
  * @author：fst
