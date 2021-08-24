@@ -8,17 +8,16 @@
             <option name="annotationType" value="MYBATIS_PLUS3" />
             <option name="basePackage" value="generator" />
             <option name="basePath" value="src/main/java" />
-            <option name="domainObjectName" value="Merchant" />
+            <option name="domainObjectName" value="App" />
             <option name="encoding" value="UTF-8" />
             <option name="extraTemplateNames">
               <list />
             </option>
-            <option name="moduleName" value="pay-merchant-api" />
-            <option name="modulePath" value="$PROJECT_DIR$/pay-merchant-api" />
-            <option name="needToStringHashcodeEquals" value="true" />
+            <option name="moduleName" value="pay-common" />
+            <option name="modulePath" value="$PROJECT_DIR$/pay-common" />
             <option name="relativePackage" value="domain" />
             <option name="rootClass" value="" />
-            <option name="tableName" value="merchant" />
+            <option name="tableName" value="app" />
             <option name="targetProject" value="$PROJECT_DIR$" />
             <option name="templatesName" value="mybatis-plus3" />
             <option name="useLombokPlugin" value="true" />
